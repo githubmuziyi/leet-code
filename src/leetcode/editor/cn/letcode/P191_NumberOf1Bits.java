@@ -40,6 +40,8 @@ package leetcode.editor.cn.letcode;
 //如果多次调用这个函数，你将如何优化你的算法？ 
 // Related Topics 位运算
 
+import leetcode.editor.cn.common.ListNode;
+
 public class P191_NumberOf1Bits{
     public static void main(String[] args) {
         Solution solution = new P191_NumberOf1Bits().new Solution();
@@ -64,4 +66,45 @@ public class Solution {
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
+    public static class P19_RemoveNthNodeFromEndOfList{
+        public static void main(String[] args) {
+            Solution solution = new P19_RemoveNthNodeFromEndOfList().new Solution();
+            // 添加测试用例
+        }
+
+        //leetcode submit region begin(Prohibit modification and deletion)
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
+    class Solution {
+        public ListNode removeNthFromEnd(ListNode head, int n) {
+            ListNode fast = head;
+            ListNode slow = head;
+            ListNode pre = head;
+            for (int i = 0; i < n - 1; i++) {
+                if (fast.next == null) {
+                    throw new RuntimeException("list is too short");
+                }
+                fast = fast.next;
+            }
+            while (fast.next != null) {
+                pre = slow;
+                slow = slow.next;
+                fast = fast.next;
+            }
+            pre.next = slow.next;
+            if (pre == slow) {
+                return pre.next;
+            }
+            return head;
+        }
+    }
+    //leetcode submit region end(Prohibit modification and deletion)
+
+    }
 }
