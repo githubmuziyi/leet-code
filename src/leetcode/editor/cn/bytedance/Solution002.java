@@ -26,9 +26,11 @@ public class Solution002 {
         if (strs.length <= 0) {
             return "";
         }
+        // 假设最长公共前缀为第一个字符串
         String commonPre = strs[0];
         for (int i = 1; i < strs.length; i++) {
             while (strs[i].indexOf(commonPre) != 0) {
+                // 不满足则最长公共前缀缩短一位
                 commonPre = commonPre.substring(0, commonPre.length() - 1);
                 if (commonPre.length() <= 0) {
                     return "";
