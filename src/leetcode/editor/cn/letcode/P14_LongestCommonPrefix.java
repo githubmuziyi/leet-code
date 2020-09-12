@@ -27,7 +27,7 @@ public class P14_LongestCommonPrefix{
     public static void main(String[] args) {
         Solution solution = new P14_LongestCommonPrefix().new Solution();
         // 添加测试用例
-        String[] strs = new String[] {"flower","flow","flight"};
+        String[] strs = new String[] {"flower","flight","flow"};
         String common = solution.longestCommonPrefix(strs);
         System.out.println(common);
     }
