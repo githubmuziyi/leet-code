@@ -35,6 +35,7 @@ public class Solution008 {
         Arrays.sort(nums);
         int length = nums.length;
         for (int first = 0; first < length; first++) {
+            // 后一个数和前一个数相等时直接跳过
             if (first > 0 && nums[first] == nums[first - 1]) {
                 continue;
             }
@@ -44,9 +45,11 @@ public class Solution008 {
                 if (second == third) {
                     break;
                 }
+                // 后一个数和前一个数相等时直接跳过
                 if (second > first + 1 && nums[second] == nums[second - 1]) {
                     continue;
                 }
+                // 末尾指针前移
                 while (third > second + 1 && nums[second] + nums[third] > target) {
                     third--;
                 }
